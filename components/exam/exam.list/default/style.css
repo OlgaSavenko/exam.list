@@ -1,0 +1,11 @@
+.exam-list {
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.exam-list td,
+.exam-list th {
+	padding: 11px 15px;
+	border: 1px solid black;
+}
