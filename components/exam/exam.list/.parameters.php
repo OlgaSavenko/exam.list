@@ -6,40 +6,40 @@
 
 	try {
 		if (!Main\Loader::includeModule('iblock')) {
-	        throw new Main\LoaderException(Loc::getMessage('EXAM_LIST_PARAMETERS_IBLOCK_MODULE_NOT_INSTALLED'));
-	    }
+			throw new Main\LoaderException(Loc::getMessage('EXAM_LIST_PARAMETERS_IBLOCK_MODULE_NOT_INSTALLED'));
+		}
 
 		$iblockTypes = CIBlockParameters::GetIBlockTypes(["-" => " "]);
 		$iblocksList = ["" => " "];
 		
 		if (isset($arCurrentValues['IBLOCK_TYPE']) && strlen($arCurrentValues['IBLOCK_TYPE'])) {
-	        $filter = [
-	            'TYPE' => $arCurrentValues['IBLOCK_TYPE'],
-	            'ACTIVE' => 'Y'
-	        ];
-	        $ibList = CIBlock::GetList(['SORT' => 'ASC'], $filter);
-	        while ($iblock = $ibList->GetNext()) {
-	            $iblocksList[$iblock['ID']] = $iblock['NAME'];
-	        }
-	    }
+			$filter = [
+				'TYPE' => $arCurrentValues['IBLOCK_TYPE'],
+				'ACTIVE' => 'Y'
+			];
+			$ibList = CIBlock::GetList(['SORT' => 'ASC'], $filter);
+			while ($iblock = $ibList->GetNext()) {
+				$iblocksList[$iblock['ID']] = $iblock['NAME'];
+			}
+		}
 		
 		$arComponentParameters = array(
-		    'GROUPS' => array(),	    
-		    'PARAMETERS' => array(
-			    'IBLOCK_TYPE' => [
-	                'PARENT' => 'BASE',
-	                'NAME' => Loc::getMessage('EXAM_LIST_PARAMETERS_IBLOCK_TYPE'),
-	                'TYPE' => 'LIST',
-	                'VALUES' => $iblockTypes,
-	                'DEFAULT' => '',
-	                'REFRESH' => 'Y'
-	            ],
-	            'IBLOCK_ID' => [
-	                'PARENT' => 'BASE',
-	                'NAME' => Loc::getMessage('EXAM_LIST_PARAMETERS_IBLOCK_CODE'),
-	                'TYPE' => 'LIST',
-	                'VALUES' => $iblocksList,
-	            ],
+			'GROUPS' => array(),	    
+			'PARAMETERS' => array(
+				'IBLOCK_TYPE' => [
+				'PARENT' => 'BASE',
+				'NAME' => Loc::getMessage('EXAM_LIST_PARAMETERS_IBLOCK_TYPE'),
+				'TYPE' => 'LIST',
+				'VALUES' => $iblockTypes,
+				'DEFAULT' => '',
+				'REFRESH' => 'Y'
+			],
+			'IBLOCK_ID' => [
+	                	'PARENT' => 'BASE',
+	                	'NAME' => Loc::getMessage('EXAM_LIST_PARAMETERS_IBLOCK_CODE'),
+	                	'TYPE' => 'LIST',
+	                	'VALUES' => $iblocksList,
+			],
 		        'CACHE_TIME' => ['DEFAULT' => 3600],
 		    ),
 		);
