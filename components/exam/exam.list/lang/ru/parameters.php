@@ -1,0 +1,4 @@
+<?
+	$MESS['EXAM_LIST_PARAMETERS_IBLOCK_TYPE'] = 'Тип инфоблока';
+	$MESS['EXAM_LIST_PARAMETERS_IBLOCK_CODE'] = 'Инфоблок';
+	$MESS['EXAM_LIST_PARAMETERS_IBLOCK_MODULE_NOT_INSTALLED'] = 'Модуль "Инфоблоки" не установлен';

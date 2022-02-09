@@ -1,0 +1,4 @@
+<?
+	$MESS['EXAM_LIST_DESCRIPTION_COMPONENT_NAME'] = 'Расписание экзаменов';
+	$MESS['EXAM_LIST_DESCRIPTION_COMPONENT_DESC'] = 'Выводит расписание экзаменов';
+	$MESS['EXAM_LIST_DESCRIPTION_COMPONENT_PATH_NAME'] = 'Экзамены';
